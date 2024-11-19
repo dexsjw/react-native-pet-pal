@@ -1,0 +1,179 @@
+{
+  "uuid": "e8a19892-a258-492e-a315-c4418d4153b4",
+  "lastMigration": 33,
+  "name": "Pet pal",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "4a0c7c04-9493-43d0-b412-6c7a122bb494",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "owner-auth",
+      "responses": [
+        {
+          "uuid": "3066f073-9f2a-4e98-82ee-558ef7f1f8db",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "2t7f",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "8d6b2b95-d63d-4a1c-9222-a8ed5caae44b",
+      "type": "crud",
+      "documentation": "Perform CRUD operations on \"OwnerAuth\" data bucket",
+      "method": "",
+      "endpoint": "owner-auth",
+      "responses": [
+        {
+          "uuid": "eb2dfaa4-12f7-4fae-be28-439a50ab85c5",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Perform CRUD operations on \"OwnerAuth\" data bucket (\"Data\" tab at the top)",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "2t7f",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "ownerId",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "b75dee8b-2839-4876-aed7-80b89ddd1dea",
+      "type": "crud",
+      "documentation": "Perform CRUD operations on \"OwnerProfile\" data bucket",
+      "method": "",
+      "endpoint": "owner-profile",
+      "responses": [
+        {
+          "uuid": "0fc351ec-cf21-4cf2-bfef-7b5af357ce37",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Perform CRUD operations on \"OwnerProfile\" data bucket (\"Data\" tab at the top)",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "ywxw",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "ownerId",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "8d6b2b95-d63d-4a1c-9222-a8ed5caae44b"
+    },
+    {
+      "type": "route",
+      "uuid": "b75dee8b-2839-4876-aed7-80b89ddd1dea"
+    },
+    {
+      "type": "route",
+      "uuid": "4a0c7c04-9493-43d0-b412-6c7a122bb494"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [
+    {
+      "uuid": "90bd4e8d-ec37-47c0-93d8-ed2c569751d3",
+      "id": "2t7f",
+      "name": "OwnerAuth",
+      "documentation": "Pet Pal owner credentials and authentication state",
+      "value": "[\n  {{#repeat 5 10}}\n    {\n      \"ownerId\": \"{{guid}}\",\n      \"email\": \"{{email}}\",\n      \"username\": \"{{firstName}}\",\n      \"password\": \"{{lorem 1}}\",\n      \"isLoggedIn\": false\n    }\n  {{/repeat}}\n]"
+    },
+    {
+      "uuid": "a672d09c-8f49-47e7-8143-6a73e645f5f5",
+      "id": "ywxw",
+      "name": "OwnerProfile",
+      "documentation": "Pet Pal owner profile",
+      "value": "[\n  {{#each (dataRaw '2t7f')}}\n    {\n      \"ownerId\": \"{{ownerId}}\",\n      \"ownerName\": \"{{firstName}} {{lastName}}\",\n      \"ownerMatches\": [],\n      \"areaLocation\": \"{{street}}\",\n      \"petPicture\": [], \n      \"petName\": \"{{firstName}}\",\n      \"petBreed\": \"{{faker 'animal.dog'}}\",\n      \"petGender\": \"{{faker 'person.sex'}}\",\n      \"petAge\": {{int 1 15}},\n      \"petSize\": \"{{oneOf (array 'Small' 'Medium' 'Large')}}\",\n      \"petDescription\": \"{{lorem 20}}\",\n      \"petIsNeutered\": {{boolean}}\n    }\n    {{#unless @last}},{{/unless}}\n  {{/each}}\n]"
+    }
+  ],
+  "callbacks": []
+}
