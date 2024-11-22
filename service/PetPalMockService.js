@@ -83,7 +83,7 @@ export const getPet = async (petId) => {
 export const getAllPet = async () => {
   let response = [];
   try {
-    response = await getPetData("");
+    response = await getPet("");
   } catch (error) {
     console.error(`Error encountered when GET ${PET_PATH}`);
     console.error("Error message: ", error.message);
@@ -133,6 +133,7 @@ export const getOwnerAuth = async (ownerAuthId) => {
   let response = {};
   try {
     response = await petPalMockApi.get(`${OWNER_AUTH_PATH}/${ownerAuthId}`);
+    console.log("respone", response);
   } catch (error) {
     console.error(`Error encountered when GET ${OWNER_AUTH_PATH}/${ownerAuthId}`);
     console.error("Error message: ", error.message);
@@ -144,7 +145,7 @@ export const getOwnerAuth = async (ownerAuthId) => {
 export const getAllOwnerAuth = async () => {
   let response = [];
   try {
-    response = await getPetData("");
+    response = await getOwnerAuth("");
   } catch (error) {
     console.error(`Error encountered when GET ${OWNER_AUTH_PATH}`);
     console.error("Error message: ", error.message);
@@ -205,7 +206,7 @@ export const getOwner = async (ownerId) => {
 export const getAllOwner = async () => {
   let response = [];
   try {
-    response = await getPetData("");
+    response = await getOwner("");
   } catch (error) {
     console.error(`Error encountered when GET ${OWNER_PATH}`);
     console.error("Error message: ", error.message);
