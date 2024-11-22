@@ -231,11 +231,18 @@
   ],
   "data": [
     {
+      "uuid": "a7d1bfcc-b923-440d-8145-248cfe4f8f15",
+      "id": "nb28",
+      "name": "Pet",
+      "documentation": "Pet Pal pet profile",
+      "value": "[\n  {{#repeat 1 5}}\n    {\n      \"id\": {{int}},\n      \"name\": \"{{firstName}}\",\n      \"gender\": \"{{faker 'person.sex'}}\",\n      \"age\": {{int 1 15}},\n      \"isNeutered\": {{boolean}},\n      \"pictures\": [\n        {{#repeat 1 5}}\n          \"\"{{#unless @last}},{{/unless}}\n        {{/repeat}}\n      ],\n      \"description\": \"{{lorem 20}}\",\n      \"petData\": 1\n    }\n  {{/repeat}}\n]"
+    },
+    {
       "uuid": "57cda0d8-6d4c-4f90-a710-3691b22492ba",
       "id": "0mde",
       "name": "PetData",
       "documentation": "Pet data e.g. breed, animal group",
-      "value": "[\n  {\n    \"id\": 1,\n    \"breed\": \"{{faker 'animal.dog'}}\",\n    \"animalGroup\": \"dog\",\n    \"pet\": []\n  },\n  {\n    \"id\": 2,\n    \"breed\": \"{{faker 'animal.cat'}}\",\n    \"animalGroup\": \"cat\",\n    \"pet\": []\n  },\n  {\n    \"id\": 3,\n    \"breed\": \"{{faker 'animal.bird'}}\",\n    \"animalGroup\": \"bird\",\n    \"pet\": []\n  },\n  {\n    \"id\": 4,\n    \"breed\": \"{{faker 'animal.rabbit'}}\",\n    \"animalGroup\": \"rabbit\",\n    \"pet\": []\n  },\n  {\n    \"id\": 5,\n    \"breed\": \"{{faker 'animal.fish'}}\",\n    \"animalGroup\": \"fish\",\n    \"pet\": []\n  },\n]"
+      "value": "[\n  {\n    \"id\": 1,\n    \"breed\": \"{{faker 'animal.dog'}}\",\n    \"animalGroup\": \"dog\",\n    \"pet\": [\n      {{#each (dataRaw 'nb28')}}\n        {{id}}{{#unless @last}},{{/unless}}\n      {{/each}}\n    ]\n  },\n  {\n    \"id\": 2,\n    \"breed\": \"{{faker 'animal.cat'}}\",\n    \"animalGroup\": \"cat\",\n    \"pet\": []\n  },\n  {\n    \"id\": 3,\n    \"breed\": \"{{faker 'animal.bird'}}\",\n    \"animalGroup\": \"bird\",\n    \"pet\": []\n  },\n  {\n    \"id\": 4,\n    \"breed\": \"{{faker 'animal.rabbit'}}\",\n    \"animalGroup\": \"rabbit\",\n    \"pet\": []\n  },\n  {\n    \"id\": 5,\n    \"breed\": \"{{faker 'animal.fish'}}\",\n    \"animalGroup\": \"fish\",\n    \"pet\": []\n  }\n]"
     },
     {
       "uuid": "90bd4e8d-ec37-47c0-93d8-ed2c569751d3",
@@ -249,14 +256,7 @@
       "id": "ywxw",
       "name": "Owner",
       "documentation": "Pet Pal owner profile",
-      "value": "[\n  {{#each (dataRaw '2t7f')}}\n    {\n      \"id\": {{ownerId}},\n      \"name\": \"{{firstName}} {{lastName}}\",\n      \"ownerMatches\": [],\n      \"areaLocation\": \"{{street}}\",\n      \"ownerAuth\": {{id}},\n      \"pets\": []\n    }\n    {{#unless @last}},{{/unless}}\n  {{/each}}\n]"
-    },
-    {
-      "uuid": "a7d1bfcc-b923-440d-8145-248cfe4f8f15",
-      "id": "nb28",
-      "name": "Pet",
-      "documentation": "Pet Pal pet profile",
-      "value": "[\n  {{#repeat 1 5}}\n    {\n      \"id\": {{int}},\n      \"name\": \"{{firstName}}\",\n      \"gender\": \"{{faker 'person.sex'}}\",\n      \"age\": {{int 1 15}},\n      \"isNeutered\": {{boolean}},\n      \"pictures\": [\n        {{#repeat 1 5}}\n          \"https://dog.ceo/api/breeds/image/random\"{{#unless @last}},{{/unless}}\n        {{/repeat}}\n      ],\n      \"description\": \"{{lorem 20}}\",\n      \"owner\": \"\",\n      \"petData\": \"\"\n    }\n  {{/repeat}}\n]"
+      "value": "[\r\n  {{#each (dataRaw '2t7f')}}\r\n    {\r\n      \"id\": {{ownerId}},\r\n      \"name\": \"{{firstName}} {{lastName}}\",\r\n      \"ownerMatches\": [],\r\n      \"areaLocation\": \"{{street}}\",\r\n      \"ownerAuth\": {{id}},\r\n      \"pets\": [\r\n        {{oneOf (dataRaw 'nb28') true}}\r\n      ]\r\n    }{{#unless @last}},{{/unless}}\r\n  {{/each}}\r\n]"
     }
   ],
   "callbacks": []
