@@ -1,0 +1,263 @@
+{
+  "uuid": "e8a19892-a258-492e-a315-c4418d4153b4",
+  "lastMigration": 33,
+  "name": "Pet pal",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "4a0c7c04-9493-43d0-b412-6c7a122bb494",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "owner-auth",
+      "responses": [
+        {
+          "uuid": "3066f073-9f2a-4e98-82ee-558ef7f1f8db",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "2t7f",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "8d6b2b95-d63d-4a1c-9222-a8ed5caae44b",
+      "type": "crud",
+      "documentation": "Perform CRUD operations on \"OwnerAuth\" data bucket",
+      "method": "",
+      "endpoint": "owner-auth",
+      "responses": [
+        {
+          "uuid": "eb2dfaa4-12f7-4fae-be28-439a50ab85c5",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Perform CRUD operations on \"OwnerAuth\" data bucket (\"Data\" tab at the top)",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "2t7f",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "b75dee8b-2839-4876-aed7-80b89ddd1dea",
+      "type": "crud",
+      "documentation": "Perform CRUD operations on \"Owner\" data bucket",
+      "method": "",
+      "endpoint": "owner",
+      "responses": [
+        {
+          "uuid": "0fc351ec-cf21-4cf2-bfef-7b5af357ce37",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Perform CRUD operations on \"Owner\" data bucket (\"Data\" tab at the top)",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "ywxw",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "3c2a30fe-4eff-4241-85d8-167d12608944",
+      "type": "crud",
+      "documentation": "Perform CRUD operations on \"Pet\" data bucket",
+      "method": "",
+      "endpoint": "pet",
+      "responses": [
+        {
+          "uuid": "50a1b0bc-cb01-45f5-976d-7e90c7bd20e8",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Perform CRUD operations on \"Pet\" data bucket (\"Data\" tab at the top)",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "nb28",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "6014bc33-a174-4be6-b788-8b7bdf438127",
+      "type": "crud",
+      "documentation": "Perform CRUD operations on \"PetData\" data bucket",
+      "method": "",
+      "endpoint": "pet-data",
+      "responses": [
+        {
+          "uuid": "0e781acb-04da-4f26-a255-c87efc1f5f2a",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "Perform CRUD operations on \"PetData\" data bucket (\"Data\" tab at the top)",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "0mde",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "8d6b2b95-d63d-4a1c-9222-a8ed5caae44b"
+    },
+    {
+      "type": "route",
+      "uuid": "b75dee8b-2839-4876-aed7-80b89ddd1dea"
+    },
+    {
+      "type": "route",
+      "uuid": "3c2a30fe-4eff-4241-85d8-167d12608944"
+    },
+    {
+      "type": "route",
+      "uuid": "6014bc33-a174-4be6-b788-8b7bdf438127"
+    },
+    {
+      "type": "route",
+      "uuid": "4a0c7c04-9493-43d0-b412-6c7a122bb494"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [
+    {
+      "uuid": "a7d1bfcc-b923-440d-8145-248cfe4f8f15",
+      "id": "nb28",
+      "name": "Pet",
+      "documentation": "Pet Pal pet profile",
+      "value": "[\n  {{#repeat 1 5}}\n    {\n      \"id\": {{int}},\n      \"name\": \"{{firstName}}\",\n      \"gender\": \"{{faker 'person.sex'}}\",\n      \"age\": {{int 1 15}},\n      \"isNeutered\": {{boolean}},\n      \"pictures\": [\n        {{#repeat 1 5}}\n          \"\"{{#unless @last}},{{/unless}}\n        {{/repeat}}\n      ],\n      \"description\": \"{{lorem 20}}\",\n      \"petData\": 1\n    }\n  {{/repeat}}\n]"
+    },
+    {
+      "uuid": "57cda0d8-6d4c-4f90-a710-3691b22492ba",
+      "id": "0mde",
+      "name": "PetData",
+      "documentation": "Pet data e.g. breed, animal group",
+      "value": "[\n  {\n    \"id\": 1,\n    \"breed\": \"{{faker 'animal.dog'}}\",\n    \"animalGroup\": \"dog\",\n    \"pet\": [\n      {{#each (dataRaw 'nb28')}}\n        {{id}}{{#unless @last}},{{/unless}}\n      {{/each}}\n    ]\n  },\n  {\n    \"id\": 2,\n    \"breed\": \"{{faker 'animal.cat'}}\",\n    \"animalGroup\": \"cat\",\n    \"pet\": []\n  },\n  {\n    \"id\": 3,\n    \"breed\": \"{{faker 'animal.bird'}}\",\n    \"animalGroup\": \"bird\",\n    \"pet\": []\n  },\n  {\n    \"id\": 4,\n    \"breed\": \"{{faker 'animal.rabbit'}}\",\n    \"animalGroup\": \"rabbit\",\n    \"pet\": []\n  },\n  {\n    \"id\": 5,\n    \"breed\": \"{{faker 'animal.fish'}}\",\n    \"animalGroup\": \"fish\",\n    \"pet\": []\n  }\n]"
+    },
+    {
+      "uuid": "90bd4e8d-ec37-47c0-93d8-ed2c569751d3",
+      "id": "2t7f",
+      "name": "OwnerAuth",
+      "documentation": "Pet Pal owner credentials and authentication state",
+      "value": "[\n  {\n      \"id\": 1,\n      \"email\": \"admin@petpal.com\",\n      \"password\": \"ForAdmin0nly!\",\n      \"ownerId\": 1\n  },\n  {{#repeat 1 3}}\n    {\n      \"id\": {{int 2}},\n      \"email\": \"{{email}}\",\n      \"password\": \"{{lorem 1}}\",\n      \"ownerId\": {{int}}\n    }\n  {{/repeat}}\n]"
+    },
+    {
+      "uuid": "a672d09c-8f49-47e7-8143-6a73e645f5f5",
+      "id": "ywxw",
+      "name": "Owner",
+      "documentation": "Pet Pal owner profile",
+      "value": "[\r\n  {{#each (dataRaw '2t7f')}}\r\n    {\r\n      \"id\": {{ownerId}},\r\n      \"name\": \"{{firstName}} {{lastName}}\",\r\n      \"ownerMatches\": [],\r\n      \"areaLocation\": \"{{street}}\",\r\n      \"ownerAuth\": {{id}},\r\n      \"pets\": [\r\n        {{oneOf (dataRaw 'nb28') true}}\r\n      ]\r\n    }{{#unless @last}},{{/unless}}\r\n  {{/each}}\r\n]"
+    }
+  ],
+  "callbacks": []
+}
