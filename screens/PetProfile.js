@@ -18,19 +18,19 @@ const PetProfile = () => {
   const route = useRoute();
   const { id } = route.params;
 
-  const [pet, setPet] = useState(null);
+  const [owner, setOwner] = useState(null);
 
   useEffect(() => {
     const ownerResponse = getOwner(id).json();
     const randomDog = getRandomDog().json();
-    ownerResponse.imageUrl = randomDog.message;
+    ownerResponse.pets[0].imageUrl = randomDog.message;
     setPet(ownerResponse);
   }, []);
 
   // const pet = {
   //   name: "Toby",
   //   age: "10",
-  //   location: "Bishan",
+  //   areaLocation: "Bishan",
   //   gender: "Male",
   //   imageUrl: ""
   //   description:
@@ -41,7 +41,7 @@ const PetProfile = () => {
     <SafeAreaView style={petProfileStyles.container}>
       <View style={petProfileStyles.imageContainer}>
         <ImageBackground
-          source={{ uri: pet.imageUrl }} // Replace with your image URL
+          source={{ uri: owner.pets[0].imageUrl }} // Replace with your image URL
           style={petProfileStyles.image}
           resizeMode="cover"
         >
@@ -59,27 +59,27 @@ const PetProfile = () => {
                   { fontSize: 30, fontWeight: "bold" },
                 ]}
               >
-                {pet.name}{" "}
+                {owner.name}{" "}
               </Text>
               <Image
                 style={petProfileStyles.genderIcon}
                 source={
-                  pet.gender.toLowerCase() == "male" ? maleicon : femaleicon
+                  owner.pets[0].gender.toLowerCase() == "male" ? maleicon : femaleicon
                 }
                 resizeMode="contain"
               />
             </View>
             <Text style={[petProfileStyles.imageText, { fontSize: 20 }]}>
-              {pet.age} years old
+              {owner.pets[0].age} years old
             </Text>
             <Text style={[petProfileStyles.imageText, { fontSize: 20 }]}>
-              {pet.location}
+              {owner.areaLocation}
             </Text>
           </View>
         </ImageBackground>
       </View>
       <View style={petProfileStyles.bottomTextContainer}>
-        <Text style={petProfileStyles.bottomText}>{pet.description}</Text>
+        <Text style={petProfileStyles.bottomText}>{owner.pets[0].description}</Text>
       </View>
       <Pressable style={petProfileStyles.bottomButton}>
         <Text style={petProfileStyles.bottomButtonText}>Message</Text>
