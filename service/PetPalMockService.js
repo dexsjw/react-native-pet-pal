@@ -1,4 +1,5 @@
 import petPalMockApi from "./api/PetPalMockApi";
+import getDogApi from "./api/GetDogApi";
 
 const PET_DATA_PATH = "/pet-data";
 const PET_PATH = "/pet"
@@ -243,6 +244,18 @@ export const deleteOwner = async (ownerId) => {
     response = await petPalMockApi.delete(`${OWNER_PATH}/${ownerId}`);
   } catch (error) {
     console.error(`Error encountered when DELETE ${OWNER_PATH}/${ownerId}`);
+    console.error("Error message: ", error.message);
+    response = {};
+  }
+  return response;
+}
+
+export const getRandomDog = async () => {
+  let response = {};
+  try {
+    response = await getDogApi.get(`/api/breeds/image/random`);
+  } catch (error) {
+    console.error(`Error encountered when GET https://dog.ceo/api/breeds/image/random`);
     console.error("Error message: ", error.message);
     response = {};
   }
