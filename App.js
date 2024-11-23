@@ -11,6 +11,10 @@ import PetProfile from './screens/PetProfile';
 import PetView from './screens/PetView';
 import RegisterScreen from './screens/RegisterScreen';
 import ChatRoom from './screens/ChatRoom';
+import AntDesign from '@expo/vector-icons/AntDesign';
+import Entypo from '@expo/vector-icons/Entypo';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import EditOwnerProfile from './screens/EditOwnerProfile';
 
 
 const Stack = createStackNavigator();
@@ -19,7 +23,11 @@ const Tab = createBottomTabNavigator();
 function PetStack() {
   return (
     <Stack.Navigator initialRouteName="PetView">
-      <Stack.Screen name="PetView" component={PetView} />
+      <Stack.Screen
+        name="PetView"
+        component={PetView} 
+        options={{headerShown: false}}
+      />
       <Stack.Screen name="PetProfile" component={PetProfile} />
     </Stack.Navigator>
   )
@@ -30,6 +38,7 @@ function OwnerStack() {
     <Stack.Navigator initialRouteName="OwnerProfile">
       <Stack.Screen name="OwnerProfile" component={OwnerProfilePage} />
       <Stack.Screen name="EditProfile" component={EditProfilePage} />
+      <Stack.Screen name="EditOwnerProfile" component={EditOwnerProfile} />
     </Stack.Navigator>
   )
 }
@@ -37,16 +46,37 @@ function OwnerStack() {
 function PetPalTabs() {
   return (
     <Tab.Navigator initialRouteName="PetStack">
-      <Tab.Screen name="ChatRoom" component={ChatRoom} />
+      <Tab.Screen 
+        name="ChatRoom" 
+        component={ChatRoom}
+        options={{
+          title: "Chat",
+          tabBarIcon: ({color, size}) => {
+            return <Entypo name="chat" size={size} color={color} />
+          }
+        }}
+      />
       <Tab.Screen
         name="PetStack"
         component={PetStack} 
-        options={{headerShown: false}}
+        options={{
+          headerShown: false,
+          title: "Pet Pal",
+          tabBarIcon: ({color, size}) => {
+            return <MaterialIcons name="pets" size={size} color={color} />
+          }
+        }}
       />
       <Tab.Screen
         name="OwnerStack"
         component={OwnerStack} 
-        options={{headerShown: false}}
+        options={{
+          headerShown: false,
+          title: "Profile",
+          tabBarIcon: ({color, size}) => {
+            return <AntDesign name="profile" size={size} color={color} />
+          }
+        }}
       />
     </Tab.Navigator>
   )
