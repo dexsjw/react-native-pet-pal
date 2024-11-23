@@ -61,7 +61,10 @@ const OwnerProfilePage = ({ navigation }) => {
       </Card>
       <ScrollView contentContainerStyle={styles.container}>
         {pets.map(pet => (
-          <Card style={styles.card}>
+          <Card 
+            key={pet.id}
+            style={styles.card}
+          >
             <Card.Content>
               <Avatar.Image
                 size={120}
