@@ -40,7 +40,7 @@ const EditProfilePage = ({ route, navigation }) => {
     setIsSaving(true);
   
     try {
-      const response = await axios.put(endpoint, updatedProfile);
+      // const response = await axios.put(endpoint, updatedProfile);
   
       if (response.status === 200) {
         ToastAndroid.show("Profile updated successfully!", ToastAndroid.SHORT);
