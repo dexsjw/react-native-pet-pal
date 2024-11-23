@@ -1,7 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Button, TextInput } from "react-native-paper";
+import { OwnerAuthContext } from "../contexts/OwnerAuthContext";
 
 function RegisterScreen () {
   const navigate = useNavigation();
@@ -31,10 +32,11 @@ function RegisterScreen () {
         <Button 
           mode="contained"
           onPress={() => {
-            navigate.navigate("PetPal")
+            // post email and password
+            navigate.navigate("PetPal");
           }}
         >
-          Login
+          Create
         </Button>
       </View>
     </View>

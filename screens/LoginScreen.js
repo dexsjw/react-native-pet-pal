@@ -1,5 +1,5 @@
-import { useNavigation } from "@react-navigation/native";
-import { useContext, useState } from "react";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import { useCallback, useContext, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Avatar, Button, TextInput } from "react-native-paper";
 import { OwnerAuthContext } from "../contexts/OwnerAuthContext";
@@ -8,10 +8,18 @@ import pawIcon from "../assets/paw-icon.png"
 function LoginScreen({ route }) {
   const navigate = useNavigation();
   const ownerAuthCtx = useContext(OwnerAuthContext);
-  const { ownerAuth, isLoggedIn, authenticateOwner } = ownerAuthCtx;
+  const { authenticateOwner, clearOwnerAuth } = ownerAuthCtx;
 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+
+  useFocusEffect(
+    useCallback(() => {
+      setEmail("");
+      setPassword("");
+      clearOwnerAuth();
+    }, [])
+  );
 
   return (
     <View style={styles.mainContainer}>
@@ -38,12 +46,12 @@ function LoginScreen({ route }) {
         <Button 
           mode="contained"
           onPress={() => {
-            authenticateOwner(email, password);
-            console.log("isLoggedIn", isLoggedIn);
-            if (isLoggedIn) {
-              navigate.navigate("PetPal", {ownerAuth});
+            if (email && password) {
+              if (authenticateOwner(email, password)) {
+                navigate.navigate("PetPal");
+              }
             }
-            navigate.navigate("PetPal", {ownerAuth});
+            // navigate.navigate("PetPal");
           }}
         >
           Login
