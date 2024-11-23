@@ -10,7 +10,7 @@ const OWNER_PATH = "/owner";
 export const getPetData = async (petDataId) => {
   let response = {};
   try {
-    response = await petPalMockApi.get(`${PET_DATA_PATH}/${petDataId}`);
+    response = (await petPalMockApi.get(`${PET_DATA_PATH}/${petDataId}`)).data;
   } catch (error) {
     console.error(`Error encountered when GET ${PET_DATA_PATH}/${petDataId}`);
     console.error("Error message: ", error.message);
@@ -34,7 +34,7 @@ export const getAllPetData = async () => {
 export const createPetData = async (petData) => {
   let response = {};
   try {
-    response = await petPalMockApi.post(PET_DATA_PATH, petData)
+    response = (await petPalMockApi.post(PET_DATA_PATH, petData)).data
   } catch (error) {
     console.error(`Error encountered when POST ${PET_DATA_PATH}`);
     console.error("Error message: ", error.message);
@@ -46,7 +46,7 @@ export const createPetData = async (petData) => {
 export const updatePetData = async (petDataId, petData) => {
   let response = {};
   try {
-    response = await petPalMockApi.put(`${PET_DATA_PATH}/${petDataId}`, petData);
+    response = (await petPalMockApi.put(`${PET_DATA_PATH}/${petDataId}`, petData)).data;
   } catch (error) {
     console.error(`Error encountered when PUT ${PET_DATA_PATH}/${petDataId}`);
     console.error("Error message: ", error.message);
@@ -58,7 +58,7 @@ export const updatePetData = async (petDataId, petData) => {
 export const deletePetData = async (petDataId) => {
   let response = {};
   try {
-    response = await petPalMockApi.delete(`${PET_DATA_PATH}/${petDataId}`);
+    response = (await petPalMockApi.delete(`${PET_DATA_PATH}/${petDataId}`)).data;
   } catch (error) {
     console.error(`Error encountered when DELETE ${PET_DATA_PATH}/${petDataId}`);
     console.error("Error message: ", error.message);
@@ -71,7 +71,7 @@ export const deletePetData = async (petDataId) => {
 export const getPet = async (petId) => {
   let response = {};
   try {
-    response = await petPalMockApi.get(`${PET_PATH}/${petId}`);
+    response = (await petPalMockApi.get(`${PET_PATH}/${petId}`)).data;
   } catch (error) {
     console.error(`Error encountered when GET ${PET_PATH}/${petId}`);
     console.error("Error message: ", error.message);
@@ -95,7 +95,7 @@ export const getAllPet = async () => {
 export const createPet = async (petData) => {
   let response = {};
   try {
-    response = await petPalMockApi.post(PET_PATH, petData)
+    response = (await petPalMockApi.post(PET_PATH, petData)).data;
   } catch (error) {
     console.error(`Error encountered when POST ${PET_PATH}`);
     console.error("Error message: ", error.message);
@@ -107,7 +107,7 @@ export const createPet = async (petData) => {
 export const updatePet = async (petId, petData) => {
   let response = {};
   try {
-    response = await petPalMockApi.put(`${PET_PATH}/${petId}`, petData);
+    response = (await petPalMockApi.put(`${PET_PATH}/${petId}`, petData)).data;
   } catch (error) {
     console.error(`Error encountered when PUT ${PET_PATH}/${petId}`);
     console.error("Error message: ", error.message);
@@ -119,7 +119,7 @@ export const updatePet = async (petId, petData) => {
 export const deletePet = async (petId) => {
   let response = {};
   try {
-    response = await petPalMockApi.delete(`${PET_PATH}/${petId}`);
+    response = (await petPalMockApi.delete(`${PET_PATH}/${petId}`)).data;
   } catch (error) {
     console.error(`Error encountered when DELETE ${PET_PATH}/${petId}`);
     console.error("Error message: ", error.message);
@@ -132,7 +132,7 @@ export const deletePet = async (petId) => {
 export const getOwnerAuth = async (ownerAuthId) => {
   let response = {};
   try {
-    response = await petPalMockApi.get(`${OWNER_AUTH_PATH}/${ownerAuthId}`);
+    response = (await petPalMockApi.get(`${OWNER_AUTH_PATH}/${ownerAuthId}`)).data;
     console.log("respone", response);
   } catch (error) {
     console.error(`Error encountered when GET ${OWNER_AUTH_PATH}/${ownerAuthId}`);
@@ -157,7 +157,7 @@ export const getAllOwnerAuth = async () => {
 export const createOwnerAuth = async (petData) => {
   let response = {};
   try {
-    response = await petPalMockApi.post(OWNER_AUTH_PATH, petData)
+    response = (await petPalMockApi.post(OWNER_AUTH_PATH, petData)).data;
   } catch (error) {
     console.error(`Error encountered when POST ${OWNER_AUTH_PATH}`);
     console.error("Error message: ", error.message);
@@ -169,7 +169,7 @@ export const createOwnerAuth = async (petData) => {
 export const updateOwnerAuth = async (ownerAuthId, petData) => {
   let response = {};
   try {
-    response = await petPalMockApi.put(`${OWNER_AUTH_PATH}/${ownerAuthId}`, petData);
+    response = (await petPalMockApi.put(`${OWNER_AUTH_PATH}/${ownerAuthId}`, petData)).data;
   } catch (error) {
     console.error(`Error encountered when PUT ${OWNER_AUTH_PATH}/${ownerAuthId}`);
     console.error("Error message: ", error.message);
@@ -181,7 +181,7 @@ export const updateOwnerAuth = async (ownerAuthId, petData) => {
 export const deleteOwnerAuth = async (ownerAuthId) => {
   let response = {};
   try {
-    response = await petPalMockApi.delete(`${OWNER_AUTH_PATH}/${ownerAuthId}`);
+    response = (await petPalMockApi.delete(`${OWNER_AUTH_PATH}/${ownerAuthId}`)).data;
   } catch (error) {
     console.error(`Error encountered when DELETE ${OWNER_AUTH_PATH}/${ownerAuthId}`);
     console.error("Error message: ", error.message);
@@ -194,7 +194,7 @@ export const deleteOwnerAuth = async (ownerAuthId) => {
 export const getOwner = async (ownerId) => {
   let response = {};
   try {
-    response = await petPalMockApi.get(`${OWNER_PATH}/${ownerId}`);
+    response = (await petPalMockApi.get(`${OWNER_PATH}/${ownerId}`)).data;
   } catch (error) {
     console.error(`Error encountered when GET ${OWNER_PATH}/${ownerId}`);
     console.error("Error message: ", error.message);
@@ -218,7 +218,7 @@ export const getAllOwner = async () => {
 export const createOwner = async (petData) => {
   let response = {};
   try {
-    response = await petPalMockApi.post(OWNER_PATH, petData)
+    response = (await petPalMockApi.post(OWNER_PATH, petData)).data;
   } catch (error) {
     console.error(`Error encountered when POST ${OWNER_PATH}`);
     console.error("Error message: ", error.message);
@@ -230,7 +230,7 @@ export const createOwner = async (petData) => {
 export const updateOwner = async (ownerId, petData) => {
   let response = {};
   try {
-    response = await petPalMockApi.put(`${OWNER_PATH}/${ownerId}`, petData);
+    response = (await petPalMockApi.put(`${OWNER_PATH}/${ownerId}`, petData)).data;
   } catch (error) {
     console.error(`Error encountered when PUT ${OWNER_PATH}/${ownerId}`);
     console.error("Error message: ", error.message);
@@ -242,7 +242,7 @@ export const updateOwner = async (ownerId, petData) => {
 export const deleteOwner = async (ownerId) => {
   let response = {};
   try {
-    response = await petPalMockApi.delete(`${OWNER_PATH}/${ownerId}`);
+    response = (await petPalMockApi.delete(`${OWNER_PATH}/${ownerId}`)).data;
   } catch (error) {
     console.error(`Error encountered when DELETE ${OWNER_PATH}/${ownerId}`);
     console.error("Error message: ", error.message);
@@ -254,7 +254,7 @@ export const deleteOwner = async (ownerId) => {
 export const getRandomDog = async () => {
   let response = {};
   try {
-    response = await getDogApi.get(`/api/breeds/image/random`);
+    response = (await getDogApi.get(`/api/breeds/image/random`)).data;
   } catch (error) {
     console.error(`Error encountered when GET https://dog.ceo/api/breeds/image/random`);
     console.error("Error message: ", error.message);
