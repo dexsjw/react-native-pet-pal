@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Button, TextInput } from "react-native-paper";
 import { OwnerAuthContext } from "../contexts/OwnerAuthContext";
+import { createOwnerAuth } from "../service/PetPalMockService";
 
 function RegisterScreen () {
   const navigate = useNavigation();
@@ -11,6 +12,16 @@ function RegisterScreen () {
 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+
+  const createNewOwnerAuth = () => {
+    const newOwnerAuth = {
+      id: Math.floor(Math.random() * 1000000000),
+      email,
+      password,
+      ownerAuth: Math.floor(Math.random() * 1000000000)
+    }
+    createOwnerAuth(newOwnerAuth);
+  }
   
   return (
     <View style={styles.mainContainer}>
@@ -32,7 +43,7 @@ function RegisterScreen () {
         <Button 
           mode="contained"
           onPress={() => {
-            // post email and password
+            // createNewOwnerAuth();
             navigate.navigate("PetPal");
           }}
         >
