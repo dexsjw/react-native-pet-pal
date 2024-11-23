@@ -4,17 +4,18 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { PaperProvider } from 'react-native-paper';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { OwnerAuthProvider } from './contexts/OwnerAuthContext';
-import EditProfilePage from './screens/EditProfilePage';
 import LoginScreen from './screens/LoginScreen';
+import RegisterScreen from './screens/RegisterScreen';
 import OwnerProfilePage from './screens/OwnerProfilePage';
+import EditOwnerProfile from './screens/EditOwnerProfile';
+import EditProfilePage from './screens/EditProfilePage';
 import PetProfile from './screens/PetProfile';
 import PetView from './screens/PetView';
-import RegisterScreen from './screens/RegisterScreen';
 import ChatRoom from './screens/ChatRoom';
+import CameraScreen from './screens/CameraScreen';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Entypo from '@expo/vector-icons/Entypo';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import EditOwnerProfile from './screens/EditOwnerProfile';
 
 
 const Stack = createStackNavigator();
@@ -46,6 +47,16 @@ function OwnerStack() {
 function PetPalTabs() {
   return (
     <Tab.Navigator initialRouteName="PetStack">
+      <Tab.Screen 
+        name="Camera" 
+        component={CameraScreen}
+        options={{
+          title: "Camera",
+          tabBarIcon: ({color, size}) => {
+            return <Entypo name="camera" size={size} color={color} />
+          }
+        }}
+      />
       <Tab.Screen 
         name="ChatRoom" 
         component={ChatRoom}
