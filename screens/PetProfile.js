@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   SafeAreaView,
   Image,
@@ -13,18 +13,47 @@ import maleicon from "../assets/maleicon.png";
 import femaleicon from "../assets/femaleicon.png";
 import { useRoute } from "@react-navigation/native";
 import { getOwner, getRandomDog } from "../service/PetPalMockService";
+import { mockDogUrl, mockOwners } from "../mockoon/mockData";
+import { OwnerAuthContext } from "../contexts/OwnerAuthContext";
 
-const PetProfile = () => {
-  const route = useRoute();
-  const { id } = route.params;
+const PetProfile = ({ route }) => {
+  // const route = useRoute();
+  // const { id } = route.params || {};
 
-  const [owner, setOwner] = useState(null);
+  // const [owner, setOwner] = useState(null);
+
+  // useEffect(() => {
+  //   const ownerResponse = getOwner(id).json();
+  //   const randomDog = getRandomDog().json();
+  //   ownerResponse.pets[0].imageUrl = randomDog.message;
+  //   setPet(ownerResponse);
+  // }, []);
+  
+  const ownerAuthCtx = useContext(OwnerAuthContext);
+  const { allOwnerAuth } = ownerAuthCtx;
+
+  const pet = route?.params?.pet || { gender: "" };
+  const [owner, setOwner] = useState({});
 
   useEffect(() => {
-    const ownerResponse = getOwner(id).json();
-    const randomDog = getRandomDog().json();
-    ownerResponse.pets[0].imageUrl = randomDog.message;
-    setPet(ownerResponse);
+    console.log("pet pet", pet)
+    // for (const o of mockOwners) {
+    //   for (const p of owner.pets) {
+    //     if (p.id === pet.id) {
+    //       setOwner(o);
+    //     }
+    //   }
+    // }
+    // mockOwners.map(o => {
+    //   console.log("owner", o)
+    //   o.pets.map(p => {
+    //     console.log("P pet", pet);
+    //     if (p.id === pet.id) {
+    //       setOwner(o);
+    //     }
+    //   });
+    // })
+    console.log(owner);
   }, []);
 
   // const pet = {
@@ -41,7 +70,8 @@ const PetProfile = () => {
     <SafeAreaView style={petProfileStyles.container}>
       <View style={petProfileStyles.imageContainer}>
         <ImageBackground
-          source={{ uri: owner.pets[0].imageUrl }} // Replace with your image URL
+          // source={{ uri: owner.pets[0].imageUrl }} // Replace with your image URL
+          source={{ uri: mockDogUrl }} // Replace with your image URL
           style={petProfileStyles.image}
           resizeMode="cover"
         >
@@ -64,13 +94,15 @@ const PetProfile = () => {
               <Image
                 style={petProfileStyles.genderIcon}
                 source={
-                  owner.pets[0].gender.toLowerCase() == "male" ? maleicon : femaleicon
+                  // owner.pets[0].gender.toLowerCase() == "male" ? maleicon : femaleicon
+                  pet.gender == "male" ? maleicon : femaleicon
                 }
                 resizeMode="contain"
               />
             </View>
             <Text style={[petProfileStyles.imageText, { fontSize: 20 }]}>
-              {owner.pets[0].age} years old
+              {/* {owner.pets[0].age} years old */}
+              {pet.age} years old
             </Text>
             <Text style={[petProfileStyles.imageText, { fontSize: 20 }]}>
               {owner.areaLocation}
@@ -79,7 +111,8 @@ const PetProfile = () => {
         </ImageBackground>
       </View>
       <View style={petProfileStyles.bottomTextContainer}>
-        <Text style={petProfileStyles.bottomText}>{owner.pets[0].description}</Text>
+        {/* <Text style={petProfileStyles.bottomText}>{owner.pets[0].description}</Text> */}
+        <Text style={petProfileStyles.bottomText}>{pet.description}</Text>
       </View>
       <Pressable style={petProfileStyles.bottomButton}>
         <Text style={petProfileStyles.bottomButtonText}>Message</Text>
