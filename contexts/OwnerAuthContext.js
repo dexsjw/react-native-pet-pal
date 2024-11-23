@@ -18,6 +18,7 @@ export function OwnerAuthProvider({ children }) {
 
   useEffect(() => {
     setAllOwnerAuth(mockOwnerAuths);
+    // setAllOwnerAuth(getAllOwnerAuth());
     console.log("allOwnerAuth", allOwnerAuth);
   }, []);
 
