@@ -235,7 +235,7 @@
       "id": "nb28",
       "name": "Pet",
       "documentation": "Pet Pal pet profile",
-      "value": "[\n  {{#repeat 1 5}}\n    {\n      \"id\": {{int}},\n      \"name\": \"{{firstName}}\",\n      \"gender\": \"{{faker 'person.sex'}}\",\n      \"age\": {{int 1 15}},\n      \"isNeutered\": {{boolean}},\n      \"pictures\": [\n        {{#repeat 1 5}}\n          \"\"{{#unless @last}},{{/unless}}\n        {{/repeat}}\n      ],\n      \"description\": \"{{lorem 20}}\",\n      \"petData\": 1\n    }\n  {{/repeat}}\n]"
+      "value": "[\n  {{#repeat 1 5}}\n    {\n      \"id\": {{int}},\n      \"name\": \"{{firstName}}\",\n      \"gender\": \"{{faker 'person.sex'}}\",\n      \"age\": {{int 1 15}},\n      \"isNeutered\": {{boolean}},\n      \"pictures\": [\n        {{#repeat 1 5}}\n          \"\"{{#unless @last}},{{/unless}}\n        {{/repeat}}\n      ],\n      \"description\": \"{{lorem 20}}\",\n      \"petDataId\": 1\n    }\n  {{/repeat}}\n]"
     },
     {
       "uuid": "57cda0d8-6d4c-4f90-a710-3691b22492ba",
@@ -256,7 +256,7 @@
       "id": "ywxw",
       "name": "Owner",
       "documentation": "Pet Pal owner profile",
-      "value": "[\r\n  {{#each (dataRaw '2t7f')}}\r\n    {\r\n      \"id\": {{ownerId}},\r\n      \"name\": \"{{firstName}} {{lastName}}\",\r\n      \"ownerMatches\": [],\r\n      \"areaLocation\": \"{{street}}\",\r\n      \"ownerAuth\": {{id}},\r\n      \"pets\": [\r\n        {{oneOf (dataRaw 'nb28') true}}\r\n      ]\r\n    }{{#unless @last}},{{/unless}}\r\n  {{/each}}\r\n]"
+      "value": "[\r\n  {{#each (dataRaw '2t7f')}}\r\n    {\r\n      \"id\": {{ownerId}},\r\n      \"name\": \"{{firstName}} {{lastName}}\",\r\n      \"ownerMatches\": [],\r\n      \"areaLocation\": \"{{street}}\",\r\n      \"ownerAuthId\": {{id}},\r\n      \"pets\": [\r\n        {{oneOf (dataRaw 'nb28') true}}\r\n      ]\r\n    }{{#unless @last}},{{/unless}}\r\n  {{/each}}\r\n]"
     }
   ],
   "callbacks": []
